@@ -38,6 +38,7 @@ import org.json.JSONObject;
 
 import java.util.Date;
 
+import java.util.Random;
 /**
  * Wrapper class around OS notification class. Handles basic operations
  * like show, delete, cancel for a single local notification instance.
