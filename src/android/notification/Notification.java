@@ -189,7 +189,7 @@ public class Notification {
 					.putExtra(Options.EXTRA, options.toString());
 
 				PendingIntent piImmediate = PendingIntent.getBroadcast(
-					context, 0, intentImmediate, PendingIntent.FLAG_UPDATE_CURRENT);
+					context, notiId, intentImmediate, PendingIntent.FLAG_UPDATE_CURRENT);
 		    		builder.setContentIntent(piImmediate);
 		    		showNotification();
 		    		
