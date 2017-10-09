@@ -185,7 +185,7 @@ public class Notification {
             if(wasInThePast()){
 
 
-				Intent intentClick = new Intent(context, de.appplant.cordova.plugin.notification.ClickActivity.class)
+				Intent intentClick = new Intent(context, de.appplant.cordova.plugin.localnotification.ClickActivity.class)
 					.putExtra(Options.EXTRA, options.toString())
 					.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
