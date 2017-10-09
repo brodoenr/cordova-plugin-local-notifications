@@ -182,7 +182,15 @@ public class Notification {
                     triggerTime, options.getRepeatInterval(), pi);
         } else {
             if(wasInThePast()){
-		    		builder.setContentIntent(pi);
+		    		// Intent gets called when the Notification gets fired
+		    		var receiverImmediate = ClickReceiver.class;
+				Intent intentImmediate = new Intent(context, receiverImmediate)
+					.setAction(options.getIdStr())
+					.putExtra(Options.EXTRA, options.toString());
+
+				PendingIntent piImmediate = PendingIntent.getBroadcast(
+					context, 0, intentImmediate, PendingIntent.FLAG_UPDATE_CURRENT);
+		    		builder.setContentIntent(piImmediate);
 		    		showNotification();
 		    		
 			} else {
