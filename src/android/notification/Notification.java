@@ -182,8 +182,8 @@ public class Notification {
                     triggerTime, options.getRepeatInterval(), pi);
         } else {
             if(wasInThePast()){
+		    		showNotification();
 		    		builder.contentIntent =  pi;
-				showNotification();
 			} else {
 				if (android.os.Build.VERSION.SDK_INT >= 19) {
 					getAlarmMgr().setExact(AlarmManager.RTC_WAKEUP, triggerTime, pi);
