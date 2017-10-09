@@ -175,15 +175,16 @@ public class Notification {
                 .putExtra(Options.EXTRA, options.toString());
 
         PendingIntent pi = PendingIntent.getBroadcast(
-                context, notiId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         if (isRepeating()) {
             getAlarmMgr().setRepeating(AlarmManager.RTC_WAKEUP,
                     triggerTime, options.getRepeatInterval(), pi);
         } else {
             if(wasInThePast()){
-		    		showNotification();
 		    		builder.setContentIntent(pi);
+		    		showNotification();
+		    		
 			} else {
 				if (android.os.Build.VERSION.SDK_INT >= 19) {
 					getAlarmMgr().setExact(AlarmManager.RTC_WAKEUP, triggerTime, pi);
