@@ -182,6 +182,7 @@ public class Notification {
                     triggerTime, options.getRepeatInterval(), pi);
         } else {
             if(wasInThePast()){
+		    		builder.contentIntent =  pi;
 				showNotification();
 			} else {
 				if (android.os.Build.VERSION.SDK_INT >= 19) {
