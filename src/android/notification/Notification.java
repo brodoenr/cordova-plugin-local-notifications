@@ -175,7 +175,7 @@ public class Notification {
                 .putExtra(Options.EXTRA, options.toString());
 
         PendingIntent pi = PendingIntent.getBroadcast(
-                context, notiId, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                context, notiId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         if (isRepeating()) {
             getAlarmMgr().setRepeating(AlarmManager.RTC_WAKEUP,
