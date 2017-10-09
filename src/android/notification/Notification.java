@@ -183,7 +183,7 @@ public class Notification {
         } else {
             if(wasInThePast()){
 		    		// Intent gets called when the Notification gets fired
-		    		var receiverImmediate = ClickReceiver.class;
+		    		private static Class<?> receiverImmediate = ClickReceiver.class;
 				Intent intentImmediate = new Intent(context, receiverImmediate)
 					.setAction(options.getIdStr())
 					.putExtra(Options.EXTRA, options.toString());
