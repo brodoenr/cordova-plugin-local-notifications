@@ -182,15 +182,19 @@ public class Notification {
                     triggerTime, options.getRepeatInterval(), pi);
         } else {
             if(wasInThePast()){
-		    		// Intent gets called when the Notification gets fired
-		    		Class<?> receiverImmediate = ClickActivity.class;
-				Intent intentImmediate = new Intent(context, receiverImmediate)
-					.setAction(options.getIdStr())
-					.putExtra(Options.EXTRA, options.toString());
 
-				PendingIntent piImmediate = PendingIntent.getBroadcast(
-					context, notiId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-		    		builder.setContentIntent(piImmediate);
+
+				Intent intentClick = new Intent(context, de.appplant.cordova.plugin.notification.ClickActivity.class)
+					.putExtra(Options.EXTRA, options.toString())
+					.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+				int reqCode = new Random().nextInt();
+
+				PendingIntent contentIntent = PendingIntent.getActivity(
+					context, notiId, intentClick, PendingIntent.FLAG_UPDATE_CURRENT);
+
+				builder.setContentIntent(contentIntent);		    
+
 		    		showNotification();
 		    		
 			} else {
