@@ -182,7 +182,7 @@ public class Notification {
             getAlarmMgr().setRepeating(AlarmManager.RTC_WAKEUP,
                     triggerTime, options.getRepeatInterval(), pi);
         } else {
-            if(wasInThePast()){
+            /*if(wasInThePast()){
 
 
 				Intent intentClick = new Intent(context, de.appplant.cordova.plugin.localnotification.ClickActivity.class)
@@ -198,7 +198,7 @@ public class Notification {
 
 		    		showNotification();
 		    		
-			} else {
+			} else {*/
 				if (android.os.Build.VERSION.SDK_INT >= 19) {
 					getAlarmMgr().setExact(AlarmManager.RTC_WAKEUP, triggerTime, pi);
 				}
@@ -206,7 +206,7 @@ public class Notification {
 				{
 					getAlarmMgr().set(AlarmManager.RTC_WAKEUP, triggerTime, pi);
 				}
-			}
+			/*}*/
         }
     }
 
